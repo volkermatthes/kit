@@ -1,6 +1,6 @@
 import React, { FunctionComponent, HTMLAttributes, useContext } from 'react';
 import styled, { css } from 'styled-components';
-import { Loader } from '../';
+import Loader from './Loader';
 import ThemeContext from '../utils/themeProvider';
 
 interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {

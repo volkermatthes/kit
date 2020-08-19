@@ -1,6 +1,7 @@
 import React, { FunctionComponent, HTMLAttributes, useContext } from 'react';
 import styled from 'styled-components';
-import {Row, Column} from '../';
+import Row from './Row';
+import Column from './Column';
 import ThemeContext from '../utils/themeProvider';
 
 interface FormItemProps extends HTMLAttributes<HTMLDivElement> {}

@@ -18,7 +18,7 @@ module.exports = {
   mode: env === "production" ? "production" : "development",
   context: __dirname,
   entry: {
-    lib: ["./src/index.ts"],
+    lib: ["./index.ts"],
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -51,7 +51,7 @@ module.exports = {
     rules: [
       {
         test: /\.(ts|tsx)?$/,
-        include: path.resolve(__dirname, "src"),
+        include: path.resolve(__dirname, "./"),
         use: [
           {
             loader: "ts-loader",
