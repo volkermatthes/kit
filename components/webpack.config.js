@@ -17,11 +17,15 @@ const env = process.env.NODE_ENV || "development";
 module.exports = {
   mode: env === "production" ? "production" : "development",
   context: __dirname,
-  entry: "./src/index.js",
+  entry: {
+    lib: ["./src/index.ts"],
+  },
   output: {
-    path: path.resolve(__dirname, "build"),
-    filename: "main.js",
-    publicPath: "/",
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].bundle.js",
+    library: "kit",
+    libraryTarget: "umd",
+    umdNamedDefine: true,
   },
   devServer: {
     hot: true,
@@ -47,7 +51,7 @@ module.exports = {
     rules: [
       {
         test: /\.(ts|tsx)?$/,
-        include: [path.resolve(__dirname, "packages/kit/icons"), path.resolve(__dirname, "packages/kit/components")],
+        include: path.resolve(__dirname, "src"),
         use: [
           {
             loader: "ts-loader",
@@ -104,101 +108,6 @@ module.exports = {
         include: /node_modules/,
         use: ["style-loader", "css-loader"],
       },
-      {
-        test: /\.(eot|otf|ttf|woff|woff2)$/,
-        use: "file-loader",
-      },
-      {
-        test: /\.svg$/,
-        use: [
-          "raw-loader",
-          {
-            loader: "svg-url-loader",
-            options: {
-              // Inline files smaller than 10 kB
-              limit: 10 * 1024,
-              noquotes: true,
-            },
-          },
-        ],
-      },
-      {
-        test: /\.(jpg|png|gif)$/,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              // Inline files smaller than 10 kB
-              limit: 10 * 1024,
-            },
-          },
-          {
-            loader: "image-webpack-loader",
-            options: {
-              mozjpeg: {
-                enabled: false,
-                // NOTE: mozjpeg is disabled as it causes errors in some Linux environments
-                // Try enabling it in your environment by switching the config to:
-                // enabled: true,
-                // progressive: true,
-              },
-              gifsicle: {
-                interlaced: false,
-              },
-              optipng: {
-                optimizationLevel: 7,
-              },
-              pngquant: {
-                quality: "65-90",
-                speed: 4,
-              },
-            },
-          },
-        ],
-      },
-      {
-        test: /\.html$/,
-        use: "html-loader",
-      },
-      {
-        test: /\.(mp4|webm)$/,
-        use: {
-          loader: "url-loader",
-          options: {
-            limit: 10000,
-          },
-        },
-      },
-      {
-        test: /\.mp3$/,
-        loader: "file-loader",
-      },
-      {
-        test: /\.ico$/,
-        include: path.resolve(__dirname, "/public"),
-        use: {
-          loader: "file-loader",
-          options: {
-            context: "src/assets",
-            name: "root[path][name].[ext]",
-          },
-        },
-      },
     ],
   },
-  serve: {
-    content: path.resolve(__dirname, "../", "src/index.js"),
-    dev: {
-      publicPath: path.resolve(__dirname, "../", "public"),
-    },
-    open: true,
-  },
-  plugins: [
-    new HtmlWebPackPlugin({
-      inject: true,
-      favicon: path.resolve(__dirname, "public/favicon.ico"),
-      template: path.resolve(__dirname, "public/index.html"),
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-  ],
 };

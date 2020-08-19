@@ -1,7 +1,14 @@
 {
-  "name": "kit-components",
+  "name": "@volkermatthes/kit-components",
   "version": "1.0.0",
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/volkermatthes/kit.git"
+  },
+  "publishConfig": {
+    "license": "ISC",
+    "registry": "https://npm.pkg.github.com/"
+  },
   "dependencies": {
     "@babel/preset-typescript": "^7.10.4",
     "@testing-library/jest-dom": "^4.2.4",
@@ -33,6 +40,8 @@
   },
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run clean && npm run build",
     "build": "cross-env NODE_ENV=production webpack",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

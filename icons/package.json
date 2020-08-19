@@ -1,8 +1,11 @@
 {
-  "name": "kit-icons",
+  "name": "@volkermatthes/kit-icons",
   "version": "1.0.0",
-  "private": true,
   "description": "kit icon package",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/volkermatthes/kit.git"
+  },
   "publishConfig": {
     "license": "ISC",
     "registry": "https://npm.pkg.github.com/"

@@ -1,6 +1,5 @@
 import React, { FunctionComponent, HTMLAttributes, useContext } from "react";
 import styled from "styled-components";
-import { Info as Icon } from "react-feather";
 import ThemeContext from '../utils/themeProvider';
 
 interface InfoProps extends HTMLAttributes<HTMLDivElement> {
@@ -48,7 +47,7 @@ const Info: FunctionComponent<InfoProps> = ({
   return (
     <StyledInfo theme={theme} {...rest}>
       <IconWrapper>
-        <Icon color={theme.colors.info3} />
+        i
       </IconWrapper>
       <ContentWrapper>
         <Title color={theme.colors.info3}>{title}</Title>
