@@ -1,5 +1,6 @@
 {
   "name": "kit",
+  "version": "1.0.0",
   "private": true,
   "workspaces": {
     "packages": [
@@ -22,22 +23,6 @@
     "eslint-plugin-react-hooks": "^4.0.0",
     "prettier": "^2.0.5",
     "typescript": "3.8.3"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lerna run --concurrency 1 --stream pre-commit"
-    }
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog",
-      "defaultType": "",
-      "defaultScope": "",
-      "defaultSubject": "",
-      "defaultBody": "",
-      "defaultIssues": ""
-    }
   },
   "dependencies": {}
 }
