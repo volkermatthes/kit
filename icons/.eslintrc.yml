@@ -1,0 +1,2 @@
+extends:
+  - '@gastromatic/eslint-config/react'
