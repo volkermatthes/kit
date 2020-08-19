@@ -18,7 +18,7 @@ module.exports = {
   mode: env === "production" ? "production" : "development",
   context: __dirname,
   entry: {
-    lib: ["./index.ts"],
+    lib: ["./src/index.ts"],
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -50,21 +50,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)?$/,
-        include: path.resolve(__dirname, "./"),
-        use: [
-          {
-            loader: "ts-loader",
-          },
-        ],
+        test: /\.(ts|tsx|js|jsx)$/,
+        exclude: /(node_modules)/,
+        use: [{ loader: 'babel-loader' }],
       },
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
-      },
+      { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
       {
         // Preprocess our own .css files
         // This is the place to add your own loaders (e.g. sass/less etc.)
@@ -109,5 +99,22 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
     ],
+  },
+  externals: {
+    'styled-components': {
+      commonjs: 'styled-components',
+      commonjs2: 'styled-components',
+      amd: 'styled-components',
+    },
+    react: {
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'react',
+    },
+    'react-dom': {
+      commonjs: 'react-dom',
+      commonjs2: 'react-dom',
+      amd: 'react-dom',
+    },
   },
 };
