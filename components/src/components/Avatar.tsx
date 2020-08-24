@@ -1,6 +1,5 @@
-import React, { FunctionComponent, HTMLAttributes, useContext } from 'react';
+import React, { FunctionComponent, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
-import ThemeContext from '../utils/themeProvider';
 
 interface AvatarProps extends HTMLAttributes<HTMLPreElement> {
   image?: string;
@@ -14,29 +13,28 @@ const StyledAvatar = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 14px;
-  background-color: ${(props: any) => props.theme.colors.primary1};
-  color: ${(props: any) => props.theme.colors.primary3};
+  background-color: var(--color-primary1);
+  color: var(--color-primary3);
   font-weight: bold;
   text-transform: uppercase;
   overflow: hidden;
   ${(props: any) => {
     if (props.size === 'small') {
       return css`
-        width: ${(props: any) => props.theme.elementHeight.field};
-        height: ${(props: any) => props.theme.elementHeight.field};
+        width: var(--element-height-field);
+        height: var(--element-height-field);
       `;
     }
     return css`
-      width: ${(props: any) => props.theme.elementHeight.default};
-      height: ${(props: any) => props.theme.elementHeight.default};
+      width: var(--element-height-default);
+      height: var(--element-height-default);
     `;
   }}
 `;
 
 const Avatar: FunctionComponent<AvatarProps> = ({ image, name, ...rest }) => {
-  const theme = useContext(ThemeContext);
   return (
-    <StyledAvatar theme={theme} {...rest}>
+    <StyledAvatar {...rest}>
       {image ? <img src={image} alt={name + ' - Avatar'} /> : name}
     </StyledAvatar>
   );

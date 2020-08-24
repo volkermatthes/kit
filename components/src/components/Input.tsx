@@ -1,6 +1,5 @@
-import React, { FunctionComponent, HTMLAttributes, useContext } from 'react';
+import React, { FunctionComponent, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
-import ThemeContext from '../utils/themeProvider';
 
 interface InputProps extends HTMLAttributes<HTMLInputElement> {
   type?: 'text' | 'email' | 'password';
@@ -21,14 +20,14 @@ const Label = styled.div`
   width: 100%;
   display: flex;
   font-size: 14px;
-  color: ${(props: any) => props.color};
+  color: var(--color-black);
 `;
 
 const HelperText = styled.div`
   width: 100%;
   display: flex;
   font-size: 12px;
-  color: ${(props: any) => props.color};
+  color: var(--color-secondary3);
   margin-top: 4px;
 `;
 
@@ -36,32 +35,32 @@ const InvalidText = styled.div`
   width: 100%;
   display: flex;
   font-size: 12px;
-  color: ${(props: any) => props.color};
+  color: var(--color-danger3);
   margin-top: 4px;
 `;
 
 const StyledInput = styled.input`
   ${(props: any) =>
     css`
-      border-radius: ${props.theme.units.borderRadius};
-      background-color: ${props.theme.colors.secondary1};
-      color: ${props.theme.colors.black};
-      height: ${props.theme.elementHeight.default};
-      font-size: 14px;
+      border-radius: var(--border-radius);
+      background-color: var(--color-secondary1);
+      color: var(--color-black);
+      height: var(--element-height-default);
+      font-size: var(--font-size-base);
       width: 100%;
       display: flex;
-      padding: 0 8px;
+      padding: 0 var(--units-medium);
       border: 2px solid transparent;
       outline: 0;
       &:hover {
-        background-color: ${props.theme.colors.secondary2};
+        background-color: var(--color-secondary2);
       }
       &:focus {
-        background-color: ${props.theme.colors.white};
-        border-color: ${props.theme.colors.primary3};
+        background-color: var(--color-white);
+        border-color: var(--color-primary3);
       }
       &:invalid {
-        border-color: ${props.theme.colors.danger3};
+        border-color: var(--color-danger3);
       }
     `
   };
@@ -75,17 +74,16 @@ const Input: FunctionComponent<InputProps> = ({
   invalid,
   ...rest
 }) => {
-  const theme = useContext(ThemeContext);
   return (
     <InputWrapper>
-      <Label color={theme.colors.black}>{label}</Label>
-      <StyledInput theme={theme} invalid {...rest}>
+      <Label>{label}</Label>
+      <StyledInput invalid {...rest}>
         {children}
       </StyledInput>
       {invalid ? (
-        <InvalidText color={theme.colors.danger3}>{invalidText}</InvalidText>
+        <InvalidText>{invalidText}</InvalidText>
       ) : (
-        <HelperText color={theme.colors.secondary3}>{helperText}</HelperText>
+        <HelperText>{helperText}</HelperText>
       )}
     </InputWrapper>
   );
