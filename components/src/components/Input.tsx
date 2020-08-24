@@ -21,6 +21,7 @@ const Label = styled.div`
   display: flex;
   font-size: 14px;
   color: var(--color-black);
+  margin-bottom: var(--units-small);
 `;
 
 const HelperText = styled.div`
@@ -36,7 +37,7 @@ const InvalidText = styled.div`
   display: flex;
   font-size: 12px;
   color: var(--color-danger3);
-  margin-top: 4px;
+  margin-top: var(--units-small);
 `;
 
 const StyledInput = styled.input`
