@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.10.4",
+    "@storybook/addon-controls": "^6.0.18",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "@volkermatthes/kit-icons": "1.0.0",
     "babel-plugin-import": "^1.13.0",
     "css-loader": "^4.0.0",
     "eslint": "^7.5.0",

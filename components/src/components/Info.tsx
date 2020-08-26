@@ -1,5 +1,6 @@
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 import styled from 'styled-components';
+import { Help } from '@volkermatthes/kit-icons';
 
 interface InfoProps extends HTMLAttributes<HTMLDivElement> {
   title?: string;
@@ -40,7 +41,9 @@ const Message = styled.div`
 const Info: FunctionComponent<InfoProps> = ({ title, message, ...rest }) => {
   return (
     <StyledInfo {...rest}>
-      <IconWrapper>i</IconWrapper>
+      <IconWrapper>
+        <Help width="24" color="var(--color-info3)" />
+      </IconWrapper>
       <ContentWrapper>
         <Title>{title}</Title>
         <Message>{message}</Message>
