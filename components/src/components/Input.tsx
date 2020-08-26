@@ -63,8 +63,7 @@ const StyledInput = styled.input`
       &:invalid {
         border-color: var(--color-danger3);
       }
-    `
-  };
+    `};
 `;
 
 const Input: FunctionComponent<InputProps> = ({
@@ -81,11 +80,7 @@ const Input: FunctionComponent<InputProps> = ({
       <StyledInput invalid {...rest}>
         {children}
       </StyledInput>
-      {invalid ? (
-        <InvalidText>{invalidText}</InvalidText>
-      ) : (
-        <HelperText>{helperText}</HelperText>
-      )}
+      {invalid ? <InvalidText>{invalidText}</InvalidText> : <HelperText>{helperText}</HelperText>}
     </InputWrapper>
   );
 };

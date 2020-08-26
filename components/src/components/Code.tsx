@@ -1,26 +1,24 @@
-import React, { FunctionComponent, HTMLAttributes, useContext } from 'react';
-import styled, { css } from 'styled-components';
-import ThemeContext from '../utils/themeProvider';
+import React, { FunctionComponent, HTMLAttributes } from 'react';
+import styled from 'styled-components';
 
 interface CodeProps extends HTMLAttributes<HTMLPreElement> {}
 
 const StyledCode = styled.pre`
-  font-size: 14px;
+  font-size: var(--font-size-base);
   width: 100%;
   display: block;
-  background-color: ${(props: any) => props.theme.colors.secondary1};
-  border-radius: ${(props: any) => props.theme.units.borderRadius};
-  padding: ${(props: any) => props.theme.units.medium};
-  color: ${(props: any) => props.theme.colors.black};
+  background-color: var(--color-secondary1);
+  border-radius: var(--border-radius);
+  padding: var(--units-medium);
+  color: var(--color-black);
   font-weight: 400;
   white-space: break-spaces;
   line-height: 1.75rem;
 `;
 
 const Code: FunctionComponent<CodeProps> = ({ children, ...rest }) => {
-  const theme = useContext(ThemeContext);
   return (
-    <StyledCode theme={theme} {...rest}>
+    <StyledCode {...rest}>
       <code>
         {children}
       </code>

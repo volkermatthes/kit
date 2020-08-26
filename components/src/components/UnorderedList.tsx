@@ -1,6 +1,5 @@
-import React, { FunctionComponent, HTMLAttributes, useContext } from 'react';
+import React, { FunctionComponent, HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import ThemeContext from '../utils/themeProvider';
 
 interface ListItemProps extends HTMLAttributes<HTMLUListElement> {}
 
@@ -11,23 +10,21 @@ interface UnorderedListProps extends HTMLAttributes<HTMLDivElement> {
 const StyledUlList = styled.ul``;
 
 const UnorderedList: FunctionComponent<{}> & UnorderedListProps = ({ children, ...rest }) => {
-  const theme = useContext(ThemeContext);
   return (
-    <StyledUlList theme={theme} {...rest}>
+    <StyledUlList {...rest}>
       {children}
     </StyledUlList>
   );
 };
 
 const StyledListItem = styled.li`
-  padding: ${(props: any) => props.theme.units.medium} 0;
-  font-size: 14px;
+  padding: var(--units-medium) 0;
+  font-size: var(--font-size-base);
 `;
 
 const Item: FunctionComponent<ListItemProps> = ({ children, ...rest }) => {
-  const theme = useContext(ThemeContext);
   return (
-    <StyledListItem theme={theme} {...rest}>
+    <StyledListItem {...rest}>
       {children}
     </StyledListItem>
   );

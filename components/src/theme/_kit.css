@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+@import url(sanitize.css);
 
 :root {
     /*Color: Primary*/
@@ -57,8 +58,12 @@
     --query-middle: 624px;
     --query-large: 892px;
     --query-xlarge: 1184px;
-    /*Body Style*/
-    font-family: 'IBM Plex Sans', sans-serif;
+    /*Container*/
+    --container-width: 740px;
+}
+
+body {
+    font-family: var(--font-primary);
     font-size: var(--font-size-base);
     font-weight: 500;
     -webkit-font-smoothing: antialiased;

@@ -1,5 +1,6 @@
 import React from 'react';
-import '../theme/theme.css';
+import { Meta } from '@storybook/react/types-6-0';
+import '../theme/_kit.css';
 import Input from '../components/Input';
 
 export default {
@@ -9,13 +10,11 @@ export default {
     label: 'E-Mail',
     helperText: 'This is a very helpful text, which helps you.',
     invalidText: 'This is a very right text, to show you whats wrong.',
-  }
-};
+  },
+} as Meta;
 
-const Template = (args) => {
-  return (
-    <Input {...args}/>
-  )
+const Template = (args: object) => {
+  return <Input {...args} />;
 };
 
 export const Default = Template.bind({});

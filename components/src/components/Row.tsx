@@ -1,9 +1,8 @@
-import React, { FunctionComponent, HTMLAttributes, useContext } from "react";
-import styled from "styled-components";
-import ThemeContext from '../utils/themeProvider';
+import React, { FunctionComponent, HTMLAttributes } from 'react';
+import styled from 'styled-components';
 
 interface RowProps extends HTMLAttributes<HTMLDivElement> {
-  align?: "top" | "center" | "bottom";
+  align?: 'top' | 'center' | 'bottom';
 }
 
 const StyledRow = styled.div`
@@ -24,14 +23,12 @@ const StyledRow = styled.div`
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin: 0 -${(props: any) => props.gutter} 0 -${(props: any) => props.gutter};
-  align-items: ${(props: { align: string }) =>
-    props.align ? props.align : "unset"};
+  margin: 0 -var(--grid-gutter) 0 -var(--grid-gutter);
+  align-items: ${(props: { align: string }) => (props.align ? props.align : 'unset')};
 `;
 
 const Row: FunctionComponent<RowProps> = ({ children, ...rest }) => {
-  const theme = useContext(ThemeContext);
-  return <StyledRow gutter={theme.grid.gutter} {...rest}>{children}</StyledRow>;
+  return <StyledRow {...rest}>{children}</StyledRow>;
 };
 
 export default Row;

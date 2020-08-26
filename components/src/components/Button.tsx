@@ -133,11 +133,7 @@ const StyledButton = styled.button`
 `;
 
 const Button: FunctionComponent<ButtonProps> = ({ children, loading, ...rest }) => {
-  return (
-    <StyledButton {...rest}>
-      {loading ? <Loader /> : children}
-    </StyledButton>
-  );
+  return <StyledButton {...rest}>{loading ? <Loader /> : children}</StyledButton>;
 };
 
 Button.defaultProps = {

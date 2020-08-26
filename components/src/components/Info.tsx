@@ -1,6 +1,5 @@
-import React, { FunctionComponent, HTMLAttributes, useContext } from "react";
-import styled from "styled-components";
-import ThemeContext from '../utils/themeProvider';
+import React, { FunctionComponent, HTMLAttributes } from 'react';
+import styled from 'styled-components';
 
 interface InfoProps extends HTMLAttributes<HTMLDivElement> {
   title?: string;
@@ -9,9 +8,9 @@ interface InfoProps extends HTMLAttributes<HTMLDivElement> {
 
 const StyledInfo = styled.div`
   width: 100%;
-  border-radius: ${(props: any) => props.theme.units.borderRadius};
-  background-color: ${(props: any) => props.theme.colors.info1};
-  padding: 16px;
+  border-radius: var(--border-radius);
+  background-color: var(--color-info1);
+  padding: var(--units-base);
   display: flex;
   flex-direction: row;
   font-size: 14px;
@@ -20,7 +19,7 @@ const StyledInfo = styled.div`
 `;
 
 const IconWrapper = styled.div`
-  padding-right: 16px;
+  padding-right: var(--units-base);
 `;
 
 const ContentWrapper = styled.div`
@@ -29,29 +28,22 @@ const ContentWrapper = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 16px;
+  font-size: var(--font-size-base);
   font-weight: 500;
-  color: ${(props: any) => props.color};
+  color: var(--color-info3);
 `;
 
 const Message = styled.div`
-  color: ${(props: any) => props.color};
+  color: var(--color-info5);
 `;
 
-const Info: FunctionComponent<InfoProps> = ({
-  title,
-  message,
-  ...rest
-}) => {
-  const theme = useContext(ThemeContext);
+const Info: FunctionComponent<InfoProps> = ({ title, message, ...rest }) => {
   return (
-    <StyledInfo theme={theme} {...rest}>
-      <IconWrapper>
-        i
-      </IconWrapper>
+    <StyledInfo {...rest}>
+      <IconWrapper>i</IconWrapper>
       <ContentWrapper>
-        <Title color={theme.colors.info3}>{title}</Title>
-        <Message color={theme.colors.info5}>{message}</Message>
+        <Title>{title}</Title>
+        <Message>{message}</Message>
       </ContentWrapper>
     </StyledInfo>
   );

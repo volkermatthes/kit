@@ -35,20 +35,16 @@ const StyledAvatar = styled.div`
 const StyledImage = styled.div`
   width: 100%;
   height: 100%;
-  background-image: url(${(props:any ) => props.image});
+  background-image: url(${(props: any) => props.image});
   background-size: contain;
-`
+`;
 
 const Avatar: FunctionComponent<AvatarProps> = ({ image, name, ...rest }) => {
-  return (
-    <StyledAvatar {...rest}>
-      {image ? <StyledImage image={image} /> : name}
-    </StyledAvatar>
-  );
+  return <StyledAvatar {...rest}>{image ? <StyledImage image={image} /> : name}</StyledAvatar>;
 };
 
 Avatar.defaultProps = {
-    size: 'default',
-}
+  size: 'default',
+};
 
 export default Avatar;

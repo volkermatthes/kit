@@ -1,8 +1,7 @@
-import React, { FunctionComponent, HTMLAttributes, useContext } from 'react';
+import React, { FunctionComponent, HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import Row from './Row';
 import Column from './Column';
-import ThemeContext from '../utils/themeProvider';
 
 interface FormItemProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -11,7 +10,7 @@ interface FormProps extends HTMLAttributes<HTMLFormElement> {
 }
 
 const StyledRow = styled(Row)`
-  margin-bottom: 16px;
+  margin-bottom: var(--units-base);
 `;
 
 const StyledForm = styled.form`
@@ -23,16 +22,14 @@ const StyledForm = styled.form`
 `;
 
 const Form: FunctionComponent<{}> & FormProps = ({ children, ...rest }) => {
-  const theme = useContext(ThemeContext);
   return (
-    <StyledForm gutter={theme.grid.gutter} {...rest}>
+    <StyledForm {...rest}>
       {children}
     </StyledForm>
   );
 };
 
 const Item: FunctionComponent<FormItemProps> = ({ children, ...rest }) => {
-  const theme = useContext(ThemeContext);
   return (
     <StyledRow {...rest}>
       <Column size={12}>

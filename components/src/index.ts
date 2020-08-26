@@ -9,7 +9,6 @@ export { default as Info } from './components/Info';
 export { default as Headline } from './components/Headline';
 export { default as Paragraph } from './components/Paragraph';
 export { default as Code } from './components/Code';
-export { default as Body } from './components/Body';
 export { default as Breadcrumbs } from './components/Breadcrumbs';
 export { default as Tag } from './components/Tag';
 export { default as Divider } from './components/Divider';
