@@ -1,50 +1,50 @@
-const webpack = require("webpack");
-const path = require("path");
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const fs = require("fs");
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const fs = require('fs');
 
 const appDirectory = fs.realpathSync(process.cwd());
 
 // Gets absolute path of file within app directory
-const resolveAppPath = (relativePath) =>
-  path.resolve(appDirectory, relativePath);
+const resolveAppPath = (relativePath) => path.resolve(appDirectory, relativePath);
 
 // Host
-const host = process.env.HOST || "localhost";
+const host = process.env.HOST || 'localhost';
 
-const env = process.env.NODE_ENV || "development";
+const env = process.env.NODE_ENV || 'development';
 
 module.exports = {
-  mode: env === "production" ? "production" : "development",
+  mode: env === 'production' ? 'production' : 'development',
   context: __dirname,
   entry: {
-    lib: ["./src/index.ts"],
+    lib: path.join(__dirname, 'src', 'index.ts'),
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].bundle.js",
-    library: "kit",
-    libraryTarget: "umd",
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].bundle.js',
+    library: 'ui',
+    libraryTarget: 'umd',
     umdNamedDefine: true,
   },
+  devtool: 'source-map',
   devServer: {
-    hot: true,
-    contentBase: "./",
-    historyApiFallback: true,
+    host: '0.0.0.0',
+    port: 9000,
   },
   resolve: {
     extensions: [
-      ".js",
-      ".jsx",
-      ".json",
-      ".ts",
-      ".tsx",
-      "less",
-      "scss",
-      "svg",
-      "woff",
-      "ttf",
-      "eot",
+      '.js',
+      '.jsx',
+      '.json',
+      '.ts',
+      '.tsx',
+      'less',
+      'scss',
+      'svg',
+      'woff',
+      'ttf',
+      'eot',
     ],
   },
   module: {
@@ -61,32 +61,32 @@ module.exports = {
         // for a list of loaders, see https://webpack.js.org/loaders/#styling
         test: /\.css$/,
         exclude: /node_modules/,
-        use: ["style-loader", "css-loader", "less-loader", "sass-loader"],
+        use: ['style-loader', 'css-loader', 'less-loader', 'sass-loader'],
       },
       {
         test: /\.less$/,
         use: [
           {
-            loader: "style-loader",
+            loader: 'style-loader',
           },
           {
-            loader: "css-loader", // translates CSS into CommonJS
+            loader: 'css-loader', // translates CSS into CommonJS
           },
           {
-            loader: "less-loader", // compiles Less to CSS
+            loader: 'less-loader', // compiles Less to CSS
           },
         ],
       },
       {
         test: /\.(sass|scss)$/,
         use: [
-          "style-loader",
-          "css-loader",
+          'style-loader',
+          'css-loader',
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {
               sassOptions: {
-                includePaths: [path.resolve(__dirname, "node_modules")],
+                includePaths: [path.resolve(__dirname, 'node_modules')],
               },
             },
           },
@@ -96,7 +96,7 @@ module.exports = {
         // Preprocess 3rd party .css files located in node_modules
         test: /\.css$/,
         include: /node_modules/,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
@@ -116,5 +116,14 @@ module.exports = {
       commonjs2: 'react-dom',
       amd: 'react-dom',
     },
+  },
+  plugins: [
+    new CopyWebpackPlugin({ patterns: [{ from: 'src/theme/kit.css', to: '' }] }),
+    new webpack.optimize.LimitChunkCountPlugin({
+      maxChunks: 1,
+    }),
+],
+  optimization: {
+    minimize: false,
   },
 };

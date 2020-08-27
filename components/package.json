@@ -1,6 +1,6 @@
 {
   "name": "@volkermatthes/kit-components",
-  "version": "1.0.4",
+  "version": "1.1.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/volkermatthes/kit.git"
@@ -9,6 +9,12 @@
     "license": "ISC",
     "registry": "https://npm.pkg.github.com/"
   },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/lib.bundle.js",
+  "module": "dist/lib.bundle.js",
+  "types": "dist/index.d.ts",
   "dependencies": {
     "@babel/preset-typescript": "^7.10.4",
     "@storybook/addon-controls": "^6.0.18",
@@ -17,6 +23,7 @@
     "@testing-library/user-event": "^7.1.2",
     "@volkermatthes/kit-icons": "1.0.0",
     "babel-plugin-import": "^1.13.0",
+    "copy-webpack-plugin": "^6.0.3",
     "css-loader": "^4.0.0",
     "eslint": "^7.5.0",
     "eslint-loader": "^4.0.2",
@@ -41,10 +48,9 @@
     "url-loader": "^4.1.0"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server",
     "clean": "rimraf dist",
     "prepublishOnly": "npm run clean && npm run build",
-    "build": "cross-env NODE_ENV=production webpack",
+    "build": "npm run clean && webpack && tsc",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006",

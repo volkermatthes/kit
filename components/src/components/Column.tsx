@@ -26,7 +26,7 @@ const StyledColumn = styled.div`
   min-width: 0;
   padding: 0 var(--grid-gutter) 0 var(--grid-gutter);
   order: ${(props: { order: number }) => (props.order ? props.order : 'unset')};
-  @media only screen and (max-width: var(--query-large)) {
+  @media only screen and (max-width: 892px) {
     flex: 100%;
     max-width: 100%;
   }

@@ -23,7 +23,7 @@ const StyledRow = styled.div`
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin: 0 -var(--grid-gutter) 0 -var(--grid-gutter);
+  margin: 0 calc(-1 * var(--grid-gutter)) 0 calc(-1 * var(--grid-gutter));
   align-items: ${(props: { align: string }) => (props.align ? props.align : 'unset')};
 `;
 

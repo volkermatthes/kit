@@ -45,7 +45,7 @@
     --element-height-field: 32px;
     --element-height-default: 40px;
     /*Grid*/
-    --grid-gutter: --units-base;
+    --grid-gutter: var(--units-base);
     /*Typography*/
     --font-size-base: 16px;
     --font-size-h1: 38px;
