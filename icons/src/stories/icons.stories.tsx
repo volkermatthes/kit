@@ -1,16 +1,16 @@
-import React, { FunctionComponent } from 'react';
-import * as icons from '../generated';
-import Icon from '../components/Icon';
-import { Meta } from '@storybook/react/types-6-0';
+import React, { FunctionComponent } from "react";
+import * as icons from "../generated";
+import Icon from "../components/Icon";
+import { Meta } from "@storybook/react/types-6-0";
 
 const keys: string[] = Object.keys(icons);
 
 export default {
-  title: 'Elements/Icon',
+  title: "Elements/Icon",
   component: Icon,
   args: {
     width: 24,
-    name: 'Add',
+    name: "Add",
   },
 } as Meta;
 
@@ -19,7 +19,10 @@ const Template = (args: object) => {
     <React.Fragment>
       <ul>
         {keys.map((item) => (
-          <li><Icon width={24} name={item} /></li>
+          <li>
+            <Icon width={24} name={item} />
+            <b>{item}</b>
+          </li>
         ))}
       </ul>
     </React.Fragment>
