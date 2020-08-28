@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+@import url(sanitize.css);
+
+:root {
+    /*Color: Primary*/
+    --color-primary1: #D4F8F1;
+    --color-primary2: #97F4E3;
+    --color-primary3: #01E3B6;
+    --color-primary4: #00C29C;
+    --color-primary5: #009074;
+    /*Color: Secondary*/
+    --color-secondary1: #F2F2F2;
+    --color-secondary2: #E0E0E0;
+    --color-secondary3: #BDBDBD;
+    --color-secondary4: #828282;
+    --color-secondary5: #4F4F4F;
+    /*Color: Success*/
+    --color-success1: #D4F8F1;
+    --color-success2: #97F4E3;
+    --color-success3: #01E3B6;
+    --color-success4: #00C29C;
+    --color-success5: #009074;
+    /*Color: Danger*/
+    --color-error1: #FEE8E8;
+    --color-error2: #FFC0C0;
+    --color-error3: #FF5E5E;
+    --color-error4: #E43C3C;
+    --color-error5: #AB0000;
+    /*Color: Info*/
+    --color-info1: #DCEEFF;
+    --color-info2: #97CAF9;
+    --color-info3: #4BA3F5;
+    --color-info4: #408DD6;
+    --color-info5: #3670A7;
+    /*Color: Base*/
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+    --color-transparent: transparent;
+    /*Units*/
+    --units-small: 4px;
+    --units-medium: 8px;
+    --units-base: 16px;
+    /*Border*/
+    --border-radius: 5px;
+    /*Fonts*/
+    --font-primary: 'IBM Plex Sans', sans-serif;
+    --font-secondary: 'Lora', serif;
+    /*Element Height*/
+    --element-height-small: 24px;
+    --element-height-field: 32px;
+    --element-height-default: 40px;
+    /*Grid*/
+    --grid-gutter: var(--units-base);
+    /*Typography*/
+    --font-size-base: 14px;
+    --font-size-h1: 38px;
+    --font-size-h2: 30px;
+    --font-size-h3: 26px;
+    --font-size-h4: 20px;
+    --font-size-h5: 18px;
+    /*Queries*/
+    --query-small: 480px;
+    --query-middle: 624px;
+    --query-large: 892px;
+    --query-xlarge: 1184px;
+    /*Container*/
+    --container-width: 740px;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-overflow-scrolling: touch;
+}
+
+a {
+    text-decoration: none;
+}
+  

@@ -1,1 +1,1 @@
-###kit React Design System
+###kit Components
