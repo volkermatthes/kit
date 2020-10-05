@@ -5,7 +5,6 @@ interface ContainerProps extends HTMLAttributes<HTMLDivElement> {}
 
 const StyledContainer = styled.div`
   width: 100%;
-  padding: 0 var(--units-base);
   @media (min-width: 892px) {
     width: var(--container-width);
   }
