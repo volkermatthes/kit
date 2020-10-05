@@ -16,3 +16,4 @@ export { default as Avatar } from './components/Avatar';
 export { default as OrderedList } from './components/OrderedList';
 export { default as UnorderedList } from './components/UnorderedList';
 export { default as Checkbox } from './components/Checkbox';
+export { default as Link } from './components/Link';
