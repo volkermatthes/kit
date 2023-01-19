@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, FunctionComponent } from 'react';
 import styled from 'styled-components';
 
-export interface TagProps extends HTMLAttributes<HTMLSpanElement> { }
+export interface TagProps extends HTMLAttributes<HTMLSpanElement> {}
 
 const StyledTag = styled.span`
   display: inline-flex;

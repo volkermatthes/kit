@@ -1,13 +1,13 @@
-import React, { FunctionComponent, HTMLAttributes } from 'react'
-import styled, { css } from 'styled-components'
+import React, { FunctionComponent, HTMLAttributes } from 'react';
+import styled, { css } from 'styled-components';
 
 export interface ItemProps extends HTMLAttributes<HTMLOListElement> {
-  current?: boolean
+  current?: boolean;
 }
 
 export interface BreadcrumbsProps extends HTMLAttributes<HTMLOListElement> {
-  Item: React.FC<ItemProps>,
-  children: React.ReactNode,
+  Item: React.FC<ItemProps>;
+  children: React.ReactNode;
 }
 
 const StyledBreadcrumbs = styled.ol`
@@ -16,14 +16,13 @@ const StyledBreadcrumbs = styled.ol`
   line-height: 1;
   color: var(--color-secondary3);
   font-size: var(--font-size-base);
-`
+`;
 
-const Breadcrumbs: FunctionComponent<BreadcrumbsProps> & { Item?: React.FunctionComponent<ItemProps> } = ({
-  children,
-  ...rest
-}) => {
-  return <StyledBreadcrumbs {...rest}>{children}</StyledBreadcrumbs>
-}
+const Breadcrumbs: FunctionComponent<BreadcrumbsProps> & {
+  Item?: React.FunctionComponent<ItemProps>;
+} = ({ children, ...rest }) => {
+  return <StyledBreadcrumbs {...rest}>{children}</StyledBreadcrumbs>;
+};
 
 const StyledBreadcrumb = styled.li`
   line-height: 1;
@@ -47,14 +46,14 @@ const StyledBreadcrumb = styled.li`
         display: none;
       }
     `}
-`
+`;
 
 const Item: FunctionComponent<ItemProps> = ({ children, ...rest }) => {
-  return <StyledBreadcrumb {...rest}>{children}</StyledBreadcrumb>
-}
+  return <StyledBreadcrumb {...rest}>{children}</StyledBreadcrumb>;
+};
 
-Breadcrumbs.displayName = 'Breadcrumbs'
-Breadcrumbs.Item = Item
-Breadcrumbs.Item.displayName = 'Breadcrumbs.Item'
+Breadcrumbs.displayName = 'Breadcrumbs';
+Breadcrumbs.Item = Item;
+Breadcrumbs.Item.displayName = 'Breadcrumbs.Item';
 
-export { Breadcrumbs }
+export { Breadcrumbs };

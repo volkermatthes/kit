@@ -9,9 +9,7 @@ export default {
 } as ComponentMeta<typeof Tag>;
 
 const Template: ComponentStory<typeof Tag> = (args: TagProps) => {
-  return (
-    <Tag {...args}>Tag</Tag>
-  );
+  return <Tag {...args}>Tag</Tag>;
 };
 
 export const Default = Template.bind({});

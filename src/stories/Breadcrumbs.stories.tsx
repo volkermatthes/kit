@@ -1,10 +1,10 @@
-import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import "../theme/kit.css";
-import { Breadcrumbs, BreadcrumbsProps } from "../";
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import '../theme/kit.css';
+import { Breadcrumbs, BreadcrumbsProps } from '../';
 
 export default {
-  title: "Elements/Breadcrumbs",
+  title: 'Elements/Breadcrumbs',
   component: Breadcrumbs,
 } as ComponentMeta<typeof Breadcrumbs>;
 

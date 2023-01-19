@@ -136,7 +136,9 @@ const StyledButton = styled.button`
 const Button: FunctionComponent<ButtonProps> = ({ icon, children, loading, ...rest }) => {
   return (
     <StyledButton {...rest}>
-      {loading ? <Loader /> : (
+      {loading ? (
+        <Loader />
+      ) : (
         <React.Fragment>
           {icon}
           <span style={icon && { marginLeft: 4 }}>{children}</span>

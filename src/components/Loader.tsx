@@ -1,7 +1,7 @@
-import React, { FunctionComponent, HTMLAttributes } from "react";
-import styled, { keyframes } from "styled-components";
+import React, { FunctionComponent, HTMLAttributes } from 'react';
+import styled, { keyframes } from 'styled-components';
 
-export interface LoaderProps extends HTMLAttributes<HTMLDivElement> { }
+export interface LoaderProps extends HTMLAttributes<HTMLDivElement> {}
 
 const LoaderWrapper = styled.div`
   width: 100%;
@@ -44,10 +44,7 @@ const Bounce2 = styled(BounceBase)`
 
 const Bounce3 = styled(BounceBase)``;
 
-const Loader: FunctionComponent<HTMLAttributes<HTMLDivElement>> = ({
-  children,
-  ...rest
-}) => {
+const Loader: FunctionComponent<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => {
   return (
     <LoaderWrapper>
       <StyledLoader {...rest}>

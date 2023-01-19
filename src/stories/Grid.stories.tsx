@@ -1,10 +1,10 @@
-import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import "../theme/kit.css";
-import { Container, ContainerProps, Row, Column } from "../";
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import '../theme/kit.css';
+import { Container, ContainerProps, Row, Column } from '../';
 
 export default {
-  title: "Elements/Grid",
+  title: 'Elements/Grid',
   component: Container,
 } as ComponentMeta<typeof Container>;
 

@@ -1,7 +1,7 @@
-import React, { FunctionComponent, HTMLAttributes } from "react";
-import styled from "styled-components";
+import React, { FunctionComponent, HTMLAttributes } from 'react';
+import styled from 'styled-components';
 
-export interface LinkProps extends HTMLAttributes<HTMLSpanElement> { }
+export interface LinkProps extends HTMLAttributes<HTMLSpanElement> {}
 
 const StyledLink = styled.span`
   text-decoration: underline;

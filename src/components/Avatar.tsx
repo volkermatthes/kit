@@ -1,10 +1,10 @@
-import React, { FunctionComponent, HTMLAttributes } from "react";
-import styled, { css } from "styled-components";
+import React, { FunctionComponent, HTMLAttributes } from 'react';
+import styled, { css } from 'styled-components';
 
 export interface AvatarProps extends HTMLAttributes<HTMLPreElement> {
   image?: string;
   name?: string;
-  size?: "default" | "small";
+  size?: 'default' | 'small';
 }
 
 const StyledAvatar = styled.div`
@@ -19,7 +19,7 @@ const StyledAvatar = styled.div`
   text-transform: uppercase;
   overflow: hidden;
   ${(props: any) => {
-    if (props.size === "small") {
+    if (props.size === 'small') {
       return css`
         width: var(--element-height-field);
         height: var(--element-height-field);
@@ -40,15 +40,11 @@ const StyledImage = styled.div`
 `;
 
 const Avatar: FunctionComponent<AvatarProps> = ({ image, name, ...rest }) => {
-  return (
-    <StyledAvatar {...rest}>
-      {image ? <StyledImage image={image} /> : name}
-    </StyledAvatar>
-  );
+  return <StyledAvatar {...rest}>{image ? <StyledImage image={image} /> : name}</StyledAvatar>;
 };
 
 Avatar.defaultProps = {
-  size: "default",
+  size: 'default',
 };
 
 export { Avatar };
