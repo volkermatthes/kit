@@ -1,16 +1,16 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import '../theme/kit.css';
-import { Paragraph, ParagraphProps } from '../';
+import { Text, TextProps } from '..';
 
 export default {
-  title: 'Typography/Paragraph',
-  component: Paragraph,
-} as ComponentMeta<typeof Paragraph>;
+  title: 'Typography/Text',
+  component: Text,
+} as ComponentMeta<typeof Text>;
 
-const Template: ComponentStory<typeof Paragraph> = (args: ParagraphProps) => {
+const Template: ComponentStory<typeof Text> = (args: TextProps) => {
   return (
-    <Paragraph {...args}>
+    <Text {...args}>
       Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
       invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
       justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
@@ -18,8 +18,14 @@ const Template: ComponentStory<typeof Paragraph> = (args: ParagraphProps) => {
       eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos
       et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
       sanctus est Lorem ipsum dolor sit amet.
-    </Paragraph>
+    </Text>
   );
 };
 
 export const Default = Template.bind({});
+
+Default.args = {
+  fontWeight: 400,
+  color: '#000000',
+  size: 14,
+};
