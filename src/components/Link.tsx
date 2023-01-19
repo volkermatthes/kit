@@ -1,7 +1,7 @@
 import React, { FunctionComponent, HTMLAttributes } from "react";
 import styled from "styled-components";
 
-interface LinkProps extends HTMLAttributes<HTMLSpanElement> {}
+export interface LinkProps extends HTMLAttributes<HTMLSpanElement> { }
 
 const StyledLink = styled.span`
   text-decoration: underline;
@@ -23,4 +23,4 @@ const Link: FunctionComponent<LinkProps> = ({ children, ...rest }) => {
   return <StyledLink {...rest}>{children}</StyledLink>;
 };
 
-export default Link;
+export { Link };

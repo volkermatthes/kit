@@ -1,7 +1,7 @@
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 import styled from 'styled-components';
 
-interface HeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
+export interface HeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
   level?: 1 | 2 | 3 | 4 | 5;
 }
 
@@ -32,7 +32,7 @@ const Headline5 = styled.h5`
   color: var(--color-black);
 `;
 
-const Headline: FunctionComponent<HeadlineProps> = ({ level, children, ...rest }) => {
+const Headline: FunctionComponent<HeadlineProps> = ({ level = 1, children, ...rest }) => {
   switch (level) {
     case 2:
       return <Headline2 {...rest}>{children}</Headline2>;
@@ -47,8 +47,4 @@ const Headline: FunctionComponent<HeadlineProps> = ({ level, children, ...rest }
   }
 };
 
-Headline.defaultProps = {
-  level: 1,
-};
-
-export default Headline;
+export { Headline };

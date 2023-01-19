@@ -1,15 +1,16 @@
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 import styled from 'styled-components';
 
-interface ListItemProps extends HTMLAttributes<HTMLOListElement> {}
+export interface OrderedListItemProps extends HTMLAttributes<HTMLOListElement> { }
 
-interface OrderedListProps extends HTMLAttributes<HTMLDivElement> {
-  Item: React.FC<ListItemProps>;
+export interface OrderedListProps extends HTMLAttributes<HTMLDivElement> {
+  Item: React.FC<OrderedListItemProps>;
+  children: React.ReactNode;
 }
 
 const StyledOlList = styled.ol``;
 
-const OrderedList: FunctionComponent<{}> & OrderedListProps = ({ children, ...rest }) => {
+const OrderedList: FunctionComponent<OrderedListProps> & { Item?: React.FunctionComponent<OrderedListItemProps> } = ({ children, ...rest }) => {
   return (
     <StyledOlList {...rest}>
       {children}
@@ -19,7 +20,7 @@ const OrderedList: FunctionComponent<{}> & OrderedListProps = ({ children, ...re
 
 const StyledListItem = styled.li``;
 
-const Item: FunctionComponent<ListItemProps> = ({ children, ...rest }) => {
+const Item: FunctionComponent<OrderedListItemProps> = ({ children, ...rest }) => {
   return (
     <StyledListItem {...rest}>
       {children}
@@ -31,4 +32,4 @@ OrderedList.displayName = 'OrderedList';
 OrderedList.Item = Item;
 OrderedList.Item.displayName = 'OrderedList.Item';
 
-export default OrderedList;
+export { OrderedList };

@@ -1,15 +1,16 @@
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 import styled from 'styled-components';
 
-interface ListItemProps extends HTMLAttributes<HTMLUListElement> {}
+export interface UnorderedListItemProps extends HTMLAttributes<HTMLUListElement> { }
 
-interface UnorderedListProps extends HTMLAttributes<HTMLDivElement> {
-  Item: React.FC<ListItemProps>;
+export interface UnorderedListProps extends HTMLAttributes<HTMLDivElement> {
+  Item: React.FC<UnorderedListItemProps>;
+  children: React.ReactNode;
 }
 
 const StyledUlList = styled.ul``;
 
-const UnorderedList: FunctionComponent<{}> & UnorderedListProps = ({ children, ...rest }) => {
+const UnorderedList: FunctionComponent<UnorderedListProps> & { Item?: React.FunctionComponent<UnorderedListItemProps> } = ({ children, ...rest }) => {
   return (
     <StyledUlList {...rest}>
       {children}
@@ -19,7 +20,7 @@ const UnorderedList: FunctionComponent<{}> & UnorderedListProps = ({ children, .
 
 const StyledListItem = styled.li``;
 
-const Item: FunctionComponent<ListItemProps> = ({ children, ...rest }) => {
+const Item: FunctionComponent<UnorderedListItemProps> = ({ children, ...rest }) => {
   return (
     <StyledListItem {...rest}>
       {children}
@@ -31,4 +32,4 @@ UnorderedList.displayName = 'UnorderedList';
 UnorderedList.Item = Item;
 UnorderedList.Item.displayName = 'UnorderedList.Item';
 
-export default UnorderedList;
+export { UnorderedList };

@@ -1,18 +1,19 @@
 import React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import '../theme/kit.css';
-import { Headline } from '../';
+import { Headline, HeadlineProps } from '../';
 
 export default {
   title: 'Elements/Headline',
   component: Headline,
-  args: {
-    level: 1,
-  },
-} as Meta;
+} as ComponentMeta<typeof Headline>;
 
-const Template = (args: object) => {
-  return <Headline {...args}>Headline</Headline>;
+const Template: ComponentStory<typeof Headline> = (args: HeadlineProps) => {
+  return <Headline {...args} />;
 };
 
 export const Default = Template.bind({});
+
+Default.args = {
+  level: 1,
+};

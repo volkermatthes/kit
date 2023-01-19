@@ -1,21 +1,21 @@
 import React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import '../theme/kit.css';
-import { UnorderedList } from '../';
+import { UnorderedList, UnorderedListProps } from '../';
 
 export default {
   title: 'Elements/UnorderedList',
   component: UnorderedList,
-} as Meta;
+} as ComponentMeta<typeof UnorderedList>;
 
-const Template = () => {
+const Template: ComponentStory<typeof UnorderedList> = (args: UnorderedListProps) => {
   return (
-    <UnorderedList>
-        <UnorderedList.Item>Item 1</UnorderedList.Item>
-        <UnorderedList.Item>Item 2</UnorderedList.Item>
-        <UnorderedList.Item>Item 3</UnorderedList.Item>
-        <UnorderedList.Item>Item 4</UnorderedList.Item>
-        <UnorderedList.Item>Item 5</UnorderedList.Item>
+    <UnorderedList {...args}>
+      <UnorderedList.Item>Item 1</UnorderedList.Item>
+      <UnorderedList.Item>Item 2</UnorderedList.Item>
+      <UnorderedList.Item>Item 3</UnorderedList.Item>
+      <UnorderedList.Item>Item 4</UnorderedList.Item>
+      <UnorderedList.Item>Item 5</UnorderedList.Item>
     </UnorderedList>
   );
 };

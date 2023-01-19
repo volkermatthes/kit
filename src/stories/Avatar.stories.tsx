@@ -1,18 +1,19 @@
 import React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import '../theme/kit.css';
-import { Avatar } from '../';
+import { Avatar, AvatarProps } from '../';
 
 export default {
   title: 'Elements/Avatar',
   component: Avatar,
-  args: {
-    name: 'VM',
-  },
-} as Meta;
+} as ComponentMeta<typeof Avatar>;
 
-const Template = (args: object) => {
+const Template: ComponentStory<typeof Avatar> = (args: AvatarProps) => {
   return <Avatar {...args} />;
 };
 
 export const Default = Template.bind({});
+
+Default.args = {
+  name: 'VM',
+};

@@ -1,8 +1,8 @@
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
-import Loader from './Loader';
+import { Loader } from './Loader';
 
-interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   kind?: 'primary' | 'submit' | 'secondary' | 'danger' | 'ghost';
   size?: 'default' | 'field' | 'small';
   icon?: React.ReactNode;
@@ -139,7 +139,7 @@ const Button: FunctionComponent<ButtonProps> = ({ icon, children, loading, ...re
       {loading ? <Loader /> : (
         <React.Fragment>
           {icon}
-          <span style={icon && {marginLeft: 4}}>{children}</span>
+          <span style={icon && { marginLeft: 4 }}>{children}</span>
         </React.Fragment>
       )}
     </StyledButton>
@@ -152,4 +152,4 @@ Button.defaultProps = {
   loading: false,
 };
 
-export default Button;
+export { Button };

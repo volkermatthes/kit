@@ -1,7 +1,7 @@
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 
-interface InfoProps extends HTMLAttributes<HTMLDivElement> {
+export interface InfoProps extends HTMLAttributes<HTMLDivElement> {
   title?: string;
   message?: string;
   icon?: React.ReactNode;
@@ -116,4 +116,4 @@ Info.defaultProps = {
   kind: 'info',
 };
 
-export default Info;
+export { Info };

@@ -1,12 +1,13 @@
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import Row from './Row';
-import Column from './Column';
+import { Row } from './Grid/Row';
+import { Column } from './Grid/Column';
 
-interface FormItemProps extends HTMLAttributes<HTMLDivElement> {}
+export interface FormItemProps extends HTMLAttributes<HTMLDivElement> { }
 
-interface FormProps extends HTMLAttributes<HTMLFormElement> {
+export interface FormProps extends HTMLAttributes<HTMLFormElement> {
   Item: React.FC<FormItemProps>;
+  childre: React.ReactNode;
 }
 
 const StyledRow = styled(Row)`
@@ -21,7 +22,7 @@ const StyledForm = styled.form`
   }
 `;
 
-const Form: FunctionComponent<{}> & FormProps = ({ children, ...rest }) => {
+const Form: FunctionComponent<FormProps> & { Item?: React.FunctionComponent<FormItemProps> } = ({ children, ...rest }) => {
   return (
     <StyledForm {...rest}>
       {children}
@@ -43,4 +44,4 @@ Form.displayName = 'Form'
 Form.Item = Item;
 Form.Item.displayName = 'Form.Item'
 
-export default Form;
+export { Form };

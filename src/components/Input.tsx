@@ -1,7 +1,7 @@
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 import styled from 'styled-components';
 
-interface InputProps extends HTMLAttributes<HTMLInputElement> {
+export interface InputProps extends HTMLAttributes<HTMLInputElement> {
   type?: 'text' | 'email' | 'password';
   label?: string;
   disabled?: boolean;
@@ -80,4 +80,4 @@ const Input: FunctionComponent<InputProps> = ({
   );
 };
 
-export default Input;
+export { Input };

@@ -1,15 +1,15 @@
 import React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import '../theme/kit.css';
-import { Loader } from '../';
+import { Loader, LoaderProps } from '../';
 
 export default {
   title: 'Elements/Loader',
   component: Loader,
-} as Meta;
+} as ComponentMeta<typeof Loader>;
 
-const Template = () => {
-  return <Loader />;
+const Template: ComponentStory<typeof Loader> = (args: LoaderProps) => {
+  return <Loader {...args} />;
 };
 
 export const Default = Template.bind({});

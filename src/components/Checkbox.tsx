@@ -1,7 +1,7 @@
 import React, { useState, FunctionComponent, useEffect, InputHTMLAttributes, useRef } from 'react';
 import styled, { css } from 'styled-components';
 
-interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   checked?: boolean;
   label?: string;
 }
@@ -89,4 +89,4 @@ const Checkbox: FunctionComponent<CheckboxProps> = ({className, label, disabled,
     )
 };
 
-export default Checkbox;
+export { Checkbox };

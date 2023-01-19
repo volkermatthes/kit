@@ -1,6 +1,8 @@
 import React, { FunctionComponent, HTMLAttributes } from "react";
 import styled, { keyframes } from "styled-components";
 
+export interface LoaderProps extends HTMLAttributes<HTMLDivElement> { }
+
 const LoaderWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -57,4 +59,4 @@ const Loader: FunctionComponent<HTMLAttributes<HTMLDivElement>> = ({
   );
 };
 
-export default Loader;
+export { Loader };

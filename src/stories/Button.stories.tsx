@@ -1,15 +1,16 @@
 import React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import '../theme/kit.css';
-import Button from '../components/Button';
+import { Button, ButtonProps } from '../';
 import { Plus } from 'react-feather';
+
 
 export default {
   title: 'Elements/Button',
   component: Button,
-} as Meta;
+} as ComponentMeta<typeof Button>;
 
-const Template = (args: object) => {
+const Template: ComponentStory<typeof Button> = (args: ButtonProps) => {
   return <Button icon={<Plus size="16" />} {...args}>Button</Button>;
 };
 

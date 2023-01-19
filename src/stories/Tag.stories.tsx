@@ -1,16 +1,16 @@
 import React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import '../theme/kit.css';
-import { Tag } from '../';
+import { Tag, TagProps } from '../';
 
 export default {
   title: 'Elements/Tag',
   component: Tag,
-} as Meta;
+} as ComponentMeta<typeof Tag>;
 
-const Template = (args: object) => {
+const Template: ComponentStory<typeof Tag> = (args: TagProps) => {
   return (
-    <Tag>Tag</Tag>
+    <Tag {...args}>Tag</Tag>
   );
 };
 

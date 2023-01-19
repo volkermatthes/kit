@@ -1,19 +1,19 @@
-import React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
-import '../theme/kit.css';
-import { Breadcrumbs } from '../';
+import React from "react";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import "../theme/kit.css";
+import { Breadcrumbs, BreadcrumbsProps } from "../";
 
 export default {
-  title: 'Elements/Breadcrumbs',
+  title: "Elements/Breadcrumbs",
   component: Breadcrumbs,
-} as Meta;
+} as ComponentMeta<typeof Breadcrumbs>;
 
-const Template = (args: object) => {
+const Template: ComponentStory<typeof Breadcrumbs> = (args: BreadcrumbsProps) => {
   return (
     <Breadcrumbs {...args}>
-        <Breadcrumbs.Item>Home</Breadcrumbs.Item>
-        <Breadcrumbs.Item>Route 1</Breadcrumbs.Item>
-        <Breadcrumbs.Item current>Route 1.1</Breadcrumbs.Item>
+      <Breadcrumbs.Item>Home</Breadcrumbs.Item>
+      <Breadcrumbs.Item>Route 1</Breadcrumbs.Item>
+      <Breadcrumbs.Item current>Route 1.1</Breadcrumbs.Item>
     </Breadcrumbs>
   );
 };

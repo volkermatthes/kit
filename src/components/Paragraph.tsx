@@ -1,7 +1,7 @@
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 import styled from 'styled-components';
 
-interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> {}
+export interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> { }
 
 const StyledParagraph = styled.p`
   font-size: var(--font-size-base);
@@ -15,4 +15,4 @@ const Paragraph: FunctionComponent<ParagraphProps> = ({ children, ...rest }) => 
   return <StyledParagraph {...rest}>{children}</StyledParagraph>;
 };
 
-export default Paragraph;
+export { Paragraph };

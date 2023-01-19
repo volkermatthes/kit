@@ -1,16 +1,16 @@
-import React from "react";
-import { Meta } from "@storybook/react/types-6-0";
-import "../theme/kit.css";
-import { Link } from "..";
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import '../theme/kit.css';
+import { Link, LinkProps } from '../';
 
 export default {
-  title: "Elements/Link",
+  title: 'Elements/Link',
   component: Link,
-} as Meta;
+} as ComponentMeta<typeof Link>;
 
-const Template = () => {
+const Template: ComponentStory<typeof Link> = (args: LinkProps) => {
   return (
-    <Link>
+    <Link {...args}>
       <a href="https://www.google.de" target="_blank" rel="noopener noreferrer">
         Link
       </a>

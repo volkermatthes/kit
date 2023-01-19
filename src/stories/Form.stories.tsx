@@ -1,17 +1,14 @@
-import React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
-import '../theme/kit.css';
-import { Form, Input, Button } from '../';
+import React from 'react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+import '../theme/kit.css'
+import { Form, FormProps, Input, Button } from '../'
 
 export default {
   title: 'Elements/Form',
   component: Form,
-  args: {
-    name: 'VM',
-  },
-} as Meta;
+} as ComponentMeta<typeof Form>
 
-const Template = (args: object) => {
+const Template: ComponentStory<typeof Form> = (args: FormProps) => {
   return (
     <Form {...args}>
       <Form.Item>
@@ -24,7 +21,7 @@ const Template = (args: object) => {
         <Button kind="primary">Login</Button>
       </Form.Item>
     </Form>
-  );
-};
+  )
+}
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})

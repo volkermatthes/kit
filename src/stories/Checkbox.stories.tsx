@@ -1,18 +1,19 @@
 import React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import '../theme/kit.css';
-import { Checkbox } from '../';
+import { Checkbox, CheckboxProps } from '../';
 
 export default {
   title: 'Elements/Checkbox',
   component: Checkbox,
-  args: {
-    label: 'Checkbox 1',
-  },
-} as Meta;
+} as ComponentMeta<typeof Checkbox>;
 
-const Template = (args: object) => {
+const Template: ComponentStory<typeof Checkbox> = (args: CheckboxProps) => {
   return <Checkbox {...args} />;
 };
 
 export const Default = Template.bind({});
+
+Default.args = {
+  label: 'Checkbox 1',
+};
