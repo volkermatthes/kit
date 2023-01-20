@@ -16,6 +16,9 @@ export const Default = Template.bind({});
 
 Default.args = {
   label: 'E-Mail',
+  type: 'text',
+  disabeld: false,
+  invalid: false,
   helperText: 'This is a very helpful text, which helps you.',
   invalidText: 'This is a very right text, to show you whats wrong.',
 };

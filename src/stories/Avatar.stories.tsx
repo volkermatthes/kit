@@ -16,4 +16,5 @@ export const Default = Template.bind({});
 
 Default.args = {
   name: 'VM',
+  size: 'default',
 };

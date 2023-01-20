@@ -1,16 +1,15 @@
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import { Row } from './Grid/Row';
-import { Column } from './Grid/Column';
+import { Grid } from './Grid';
 
 export interface FormItemProps extends HTMLAttributes<HTMLDivElement> {}
 
 export interface FormProps extends HTMLAttributes<HTMLFormElement> {
   Item: React.FC<FormItemProps>;
-  childre: React.ReactNode;
+  children: React.ReactNode;
 }
 
-const StyledRow = styled(Row)`
+const StyledRow = styled(Grid.Row)`
   margin-bottom: var(--units-base);
 `;
 
@@ -32,7 +31,7 @@ const Form: FunctionComponent<FormProps> & { Item?: React.FunctionComponent<Form
 const Item: FunctionComponent<FormItemProps> = ({ children, ...rest }) => {
   return (
     <StyledRow {...rest}>
-      <Column size={12}>{children}</Column>
+      <Grid.Column size={12}>{children}</Grid.Column>
     </StyledRow>
   );
 };

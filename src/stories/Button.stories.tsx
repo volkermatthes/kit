@@ -18,3 +18,9 @@ const Template: ComponentStory<typeof Button> = (args: ButtonProps) => {
 };
 
 export const Default = Template.bind({});
+
+Default.args = {
+  kind: 'primary',
+  size: 'default',
+  loading: false,
+};

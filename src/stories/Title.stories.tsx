@@ -9,7 +9,7 @@ export default {
 } as ComponentMeta<typeof Title>;
 
 const Template: ComponentStory<typeof Title> = (args: TitleProps) => {
-  return <Title {...args} />;
+  return <Title {...args}>Title</Title>;
 };
 
 export const Default = Template.bind({});
